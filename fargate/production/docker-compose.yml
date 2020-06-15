@@ -1,0 +1,14 @@
+version: "3"
+services:
+  job:
+    image: 
+    # environment:
+    #   - 
+    ports:
+      - 8000:8000
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: "/ecs/job-production"
+        awslogs-region: "ap-northeast-1"
+        awslogs-stream-prefix: "prod"
