@@ -8,3 +8,7 @@ This repository just define the minimum resources, so to deploy into the product
 
 - [Terraform](environment/README.md)
 - [Fargate](fargate/README.md)
+
+# Diagram
+
+<img src="docs/SQSBasedAutoscaling.png" width=500>
