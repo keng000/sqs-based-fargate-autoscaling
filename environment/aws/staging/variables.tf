@@ -37,7 +37,7 @@ variable "load-balancer-rule" {
   type = map(string)
   default = {
     // sqs message count based autoscaling
-    "job.enable_autoscale"      = true
+    "job.enable-autoscale"      = true
     "job.health-check-interval" = 20
     "job.health-check-timeout"  = 19
     "job.healthy-threshold"     = 2

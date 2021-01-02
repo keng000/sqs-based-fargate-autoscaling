@@ -31,7 +31,7 @@ resource "aws_alb_listener" "pj-job-http" {
 
 ## Auto Scaling
 resource "aws_appautoscaling_target" "autoscale-job" {
-  count = var.load-balancer-rule["job.enable_autoscale"] ? 1 : 0
+  count = var.load-balancer-rule["job.enable-autoscale"] ? 1 : 0
 
   service_namespace  = "ecs"
   resource_id        = "service/${var.ecs-pj-cluster.name}/job"
@@ -42,7 +42,7 @@ resource "aws_appautoscaling_target" "autoscale-job" {
 }
 
 resource "aws_appautoscaling_policy" "job-scale" {
-  count = var.load-balancer-rule["job.enable_autoscale"] ? 1 : 0
+  count = var.load-balancer-rule["job.enable-autoscale"] ? 1 : 0
 
   name               = "job-scale"
   service_namespace  = aws_appautoscaling_target.autoscale-job[count.index].service_namespace
@@ -62,7 +62,7 @@ resource "aws_appautoscaling_policy" "job-scale" {
       }
 
       metric_name = "BacklogPerInstance"
-      namespace   = "Custom/${workspace}/SQS-Based-Metrics"
+      namespace   = "Custom/${terraform.workspace}/SQS-Based-Metrics"
       statistic   = "Average"
     }
   }
